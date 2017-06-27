@@ -257,13 +257,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 786672378}
-  m_LocalRotation: {x: 0.043619405, y: 0, z: 0, w: 0.9990483}
-  m_LocalPosition: {x: 0, y: 2, z: -5}
+  m_LocalRotation: {x: 0.07218683, y: -0.08571266, z: 0.0062266653, w: 0.99368185}
+  m_LocalPosition: {x: 0.74, y: 2, z: -5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 5, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 8.31, y: -9.86, z: 0}
 --- !u!108 &786672384
 Light:
   m_ObjectHideFlags: 0
@@ -338,25 +338,6 @@ Prefab:
     - target: {fileID: 4592194794253806, guid: 6eb69fa75490b1a458dff8db7285a6a1, type: 2}
       propertyPath: m_RootOrder
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 54945156612022912, guid: 6eb69fa75490b1a458dff8db7285a6a1,
-        type: 2}
-      propertyPath: m_Drag
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4592194794253806, guid: 6eb69fa75490b1a458dff8db7285a6a1, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 90
-      objectReference: {fileID: 0}
-    - target: {fileID: 54945156612022912, guid: 6eb69fa75490b1a458dff8db7285a6a1,
-        type: 2}
-      propertyPath: m_AngularDrag
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114131088447906362, guid: 6eb69fa75490b1a458dff8db7285a6a1,
-        type: 2}
-      propertyPath: AirControl
-      value: 0.3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6eb69fa75490b1a458dff8db7285a6a1, type: 2}
@@ -464,25 +445,6 @@ Prefab:
     - target: {fileID: 4565298537095844, guid: 9c0b78b4d5bd4be43ba71e90ade63192, type: 2}
       propertyPath: m_RootOrder
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 54476139769095774, guid: 9c0b78b4d5bd4be43ba71e90ade63192,
-        type: 2}
-      propertyPath: m_Drag
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4565298537095844, guid: 9c0b78b4d5bd4be43ba71e90ade63192, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 90
-      objectReference: {fileID: 0}
-    - target: {fileID: 54476139769095774, guid: 9c0b78b4d5bd4be43ba71e90ade63192,
-        type: 2}
-      propertyPath: m_AngularDrag
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114588720531797068, guid: 9c0b78b4d5bd4be43ba71e90ade63192,
-        type: 2}
-      propertyPath: AirControl
-      value: 0.3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9c0b78b4d5bd4be43ba71e90ade63192, type: 2}
