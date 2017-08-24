@@ -126,7 +126,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4592194794253806}
   - component: {fileID: 54945156612022912}
-  - component: {fileID: 136565326117780070}
+  - component: {fileID: 65506829486801952}
   - component: {fileID: 65619918936337178}
   - component: {fileID: 114131088447906362}
   m_Layer: 0
@@ -1105,6 +1105,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 120
   m_CollisionDetection: 0
+--- !u!65 &65506829486801952
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1105147602626600}
+  m_Material: {fileID: 13400000, guid: 3cfe8daf90ea06f479d72771f37c41f8, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.4, y: 0.4747455, z: 0.4}
+  m_Center: {x: -0, y: 0.23737276, z: 0}
 --- !u!65 &65619918936337178
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -1115,7 +1127,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.1, y: 0, z: 0.1}
+  m_Size: {x: 0.1, y: 0, z: 0.4}
   m_Center: {x: 0, y: -0.05, z: 0}
 --- !u!114 &114131088447906362
 MonoBehaviour:
@@ -1130,25 +1142,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player: 1
   Rigidbody: {fileID: 54945156612022912}
-  JumpCollider: {fileID: 65619918936337178}
   JumpForce: 2
   MaxVerticalSpeed: 3
   MoveForce: 30
   MaxMoveSpeed: 2
   AirControl: 0.3
---- !u!136 &136565326117780070
-CapsuleCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1105147602626600}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.2
-  m_Height: 0.48
-  m_Direction: 1
-  m_Center: {x: 0, y: 0.24, z: 0}
 --- !u!137 &137343590583017394
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
