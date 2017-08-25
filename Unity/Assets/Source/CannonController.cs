@@ -5,10 +5,13 @@ using UnityEngine;
 public class CannonController : MonoBehaviour
 {
     #region Assigned in Unity
-    public float ShootForce = 50f;
-    public GameObject Projectile;
-    public GameObject Canon;
-    public GameObject CrossHair;
+    public float ShootForce = 10f;
+    public Rigidbody Projectile;
+    public Transform CrossHair;
+    public Transform InstantiateTransform;
+    public ParticleSystem MuzzleSmoke;
+    public Animator CamerAnimator;
+    public Animator CannonAnimator;
 
     #endregion
 
@@ -17,19 +20,25 @@ public class CannonController : MonoBehaviour
 
     public void Update()
     {
-        if (Input.GetMouseButtonDown(0));
+        if (Input.GetMouseButtonDown(0))
             ShootProjectile();
         MoveCanon();
     }
 
     private void MoveCanon()
     {
-        throw new NotImplementedException();
+        transform.LookAt(CrossHair);
     }
 
     public void ShootProjectile()
     {
-        
+        Rigidbody CannonBallClone;
+        CannonBallClone = (Rigidbody)Instantiate(Projectile, InstantiateTransform.position,InstantiateTransform.rotation);
+        CannonBallClone.AddForce(ShootForce * transform.forward);
+        Destroy(CannonBallClone.gameObject, 6f);
+        MuzzleSmoke.Play();
+        CamerAnimator.SetTrigger("Shoot");
+        CannonAnimator.SetTrigger("Shoot");
     }
 
 }
