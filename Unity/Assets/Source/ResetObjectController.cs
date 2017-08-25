@@ -1,23 +1,40 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using UnityEngine;
 
 public class ResetObjectController : MonoBehaviour {
 
     #region set in Unity
     public GameObject StandPrefab;
-    public StandController StandController;
+    public GameObject StandFloor;
+    public Transform StandParent;
+    public ParticleSystem ParticleSystem;
+
     #endregion
+
+    GameObject FloorClone;
+    GameObject StandClone;
+    void Start()
+    {
+        InstantiateStand();
+    }
 
     void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("Collisin!");
-        Invoke("InstantiateStand",1f);
-            StandController.DestroyStand();
+        Debug.Log("Collision!");
+        Destroy(FloorClone,0.25f);
+        Destroy(StandClone.gameObject, 3f);
+        ParticleSystem.Play();
+        Invoke("InstantiateStand", 2f);
     }
 
     void InstantiateStand()
     {
-        Instantiate(StandPrefab, Vector3.zero, Quaternion.identity);
+        ;
+        StandClone = Instantiate(StandPrefab, StandParent);
+
+        
+        FloorClone = Instantiate(StandFloor, StandParent);
     }
 }
