@@ -10,31 +10,66 @@ public class ResetObjectController : MonoBehaviour {
     public GameObject StandFloor;
     public Transform StandParent;
     public ParticleSystem ParticleSystem;
-
+    public GameObject TextMesh;
     #endregion
 
-    GameObject FloorClone;
-    GameObject StandClone;
+    bool CanReset = true;
+    float TimeBeforeNextReset = Globals.ResetTime;
+
     void Start()
     {
         InstantiateStand();
     }
 
+    void Update()
+    {
+        if (!CanReset)
+        {
+            if (TimeBeforeNextReset > 0)
+                TimeBeforeNextReset -= Time.deltaTime;
+            else
+                CanReset = true;
+        }
+    }
+
+
     void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("Collision!");
-        Destroy(FloorClone,0.25f);
-        Destroy(StandClone.gameObject, 3f);
+        if (CanReset)
+        {
+            ResetSequence();
+            TimeBeforeNextReset = Globals.ResetTime;
+        }
+
+    }
+
+    void ResetSequence()
+    {
+        var FloorClone = GameObject.FindGameObjectsWithTag("Floor");
+        foreach (GameObject item in FloorClone)
+        {
+            Destroy(item, Globals.ResetTime / 8);
+        }
+
+        var StandClone = GameObject.FindGameObjectsWithTag("Stand");
+        foreach (GameObject item in StandClone)
+        {
+            Destroy(item, Globals.ResetTime);
+        }
+
+        TextMesh.SetActive(false);
+        CanReset = false;
         ParticleSystem.Play();
         Invoke("InstantiateStand", 2f);
     }
 
     void InstantiateStand()
     {
-        ;
-        StandClone = Instantiate(StandPrefab, StandParent);
-
         
-        FloorClone = Instantiate(StandFloor, StandParent);
+        Instantiate(StandPrefab, StandParent);
+        
+        Instantiate(StandFloor, StandParent);
+        
+        TextMesh.SetActive(true);
     }
 }
