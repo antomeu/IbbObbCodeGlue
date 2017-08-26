@@ -18,7 +18,9 @@ public class ResetObjectController : MonoBehaviour {
 
     void Start()
     {
+        DestroyStand(0);
         InstantiateStand();
+        
     }
 
     void Update()
@@ -45,22 +47,27 @@ public class ResetObjectController : MonoBehaviour {
 
     void ResetSequence()
     {
-        var FloorClone = GameObject.FindGameObjectsWithTag("Floor");
-        foreach (GameObject item in FloorClone)
-        {
-            Destroy(item, Globals.ResetTime / 8);
-        }
-
-        var StandClone = GameObject.FindGameObjectsWithTag("Stand");
-        foreach (GameObject item in StandClone)
-        {
-            Destroy(item, Globals.ResetTime);
-        }
+        DestroyStand(Globals.ResetTime);
 
         TextMesh.SetActive(false);
         CanReset = false;
         ParticleSystem.Play();
         Invoke("InstantiateStand", 2f);
+    }
+
+    void DestroyStand(float resetTime)
+    {
+        var FloorClone = GameObject.FindGameObjectsWithTag("Floor");
+        foreach (GameObject item in FloorClone)
+        {
+            Destroy(item, resetTime / 8);
+        }
+
+        var StandClone = GameObject.FindGameObjectsWithTag("Stand");
+        foreach (GameObject item in StandClone)
+        {
+            Destroy(item, resetTime);
+        }
     }
 
     void InstantiateStand()

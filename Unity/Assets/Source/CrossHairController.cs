@@ -6,12 +6,15 @@ public class CrossHairController : MonoBehaviour {
 
     #region SET IN UNITY
     public Camera Camera;
+    //public Plane InputPlane;
+    
     #endregion
-    Plane InputPlane = new Plane(Vector3.forward, Vector3.zero);
+    
 
 
     void Update ()
     {
+        Plane InputPlane = new Plane(transform.forward, Vector3.zero);
         Ray mouseRay = Camera.ScreenPointToRay(Input.mousePosition);
         float rayDistance;
         if (InputPlane.Raycast(mouseRay, out rayDistance))
