@@ -39,18 +39,19 @@ public class ResetObjectController : MonoBehaviour {
     {
         if (CanReset)
         {
-            ResetSequence();
+            ResetSequence(collision.transform);
             TimeBeforeNextReset = Globals.ResetTime;
         }
 
     }
 
-    void ResetSequence()
+    void ResetSequence(Transform collision)
     {
         DestroyStand(Globals.ResetTime);
 
         TextMesh.SetActive(false);
         CanReset = false;
+        ParticleSystem.transform.position = collision.position;
         ParticleSystem.Play();
         Invoke("InstantiateStand", 2f);
     }

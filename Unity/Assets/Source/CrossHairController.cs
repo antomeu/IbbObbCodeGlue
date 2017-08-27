@@ -6,8 +6,6 @@ public class CrossHairController : MonoBehaviour {
 
     #region SET IN UNITY
     public Camera Camera;
-    //public Plane InputPlane;
-    
     #endregion
     
 
